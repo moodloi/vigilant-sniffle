@@ -1,0 +1,115 @@
+﻿<Window x:Class="Predator.launcher"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Launcher"
+        Height="650" Width="1000"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        Closed="Window_Closed">
+
+
+    <Border Name="main_border" CornerRadius="25" Background="Black">
+        <Grid Name="main">
+
+
+            <Border Name="back_border" CornerRadius="25,25,25,25" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
+                <Border.Background>
+                    <ImageBrush x:Name="back_img" />
+                </Border.Background>
+            </Border>
+
+            <StackPanel Width="0" Name="download_progress" Background="Orange" HorizontalAlignment="Left" Height="9"
+                        Margin="80,0,0,0" VerticalAlignment="Top" />
+            <Label Foreground="White" Content="" Name="filename" HorizontalAlignment="Left" Margin="80,10,0,0"
+                   VerticalAlignment="Top" />
+
+
+            <!--LEFT PANEL-->
+            <Border
+                Name="left_panel"
+                CornerRadius="25,0,0,25"
+                Background="Black"
+                Width="80"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Left"
+                Opacity="0.6" />
+
+
+            <!--RIGHT PANEL-->
+            <Border
+                Name="right_panel"
+                CornerRadius="0,25,25,0"
+                Background="Black"
+                Width="0"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Right"
+                Opacity="0.6" />
+
+            <Border MouseDown="close_click" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Red"
+                    Margin="0,20,15,0" BorderThickness="1" BorderBrush="LightGray" CornerRadius="15" Width="15"
+                    Height="15" />
+            <Border MouseDown="minimize_click" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Orange"
+                    Margin="0,20,35,0" BorderThickness="1" BorderBrush="LightGray" CornerRadius="15" Width="15"
+                    Height="15" />
+
+
+            <Label Visibility="Hidden" FontFamily="font/#League" Foreground="White" FontSize="30" Content="Name"
+                   Name="gameName" HorizontalAlignment="Left" Margin="120,82,0,0" VerticalAlignment="Top" />
+
+
+            <!--INSTALL BUTTON-->
+            <Button Visibility="Hidden" Cursor="Hand" Background="White" Name="install_btn" Width="100" Height="30"
+                    Style="{StaticResource roundHoverableBtn}" HorizontalAlignment="Left" Margin="120,0,0,268">
+                <StackPanel MouseDown="install_click" Width="80" Height="20" VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Image Name="install_img" Width="20" RenderOptions.BitmapScalingMode="Fant" Height="20"
+                           VerticalAlignment="Center" HorizontalAlignment="Left" Source="{StaticResource play}" />
+                    <Label Name="install_lbl" Content="Play" Foreground="Black" VerticalAlignment="Center"
+                           HorizontalAlignment="Left" Margin="25,-24,0,0" />
+                </StackPanel>
+            </Button>
+
+            <!--UNINSTALL BUTTON-->
+            <Button Visibility="Hidden" Cursor="Hand" Background="White" Name="uninstall_btn" Width="100" Height="30"
+                    Style="{StaticResource roundHoverableBtn}" HorizontalAlignment="Left" Margin="233,0,0,268">
+                <StackPanel MouseDown="uninstall_btn_Click" Width="80" Height="20" VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Image Name="uninstall_img" RenderOptions.BitmapScalingMode="Fant" Width="20" Height="20"
+                           VerticalAlignment="Center" HorizontalAlignment="Left" Source="{StaticResource uninstall}" />
+                    <Label Name="uninstall_lbl" Content="Uninstall" Foreground="Black" VerticalAlignment="Center"
+                           HorizontalAlignment="Center" Margin="15,-24,0,0" />
+
+                </StackPanel>
+
+            </Button>
+
+            <TextBlock Visibility="Hidden" Width="{Binding Path=ActualWidth, ElementName=right_panel}" FontSize="10"
+                       Foreground="White" Name="email_lbl" TextAlignment="Center" Text="email" Margin="800,77,0,0"
+                       VerticalAlignment="Top" />
+            <TextBlock Visibility="Hidden" Cursor="Hand" MouseDown="add_another_Click" Name="Add_another"
+                       Foreground="Orange" Text="Add Another Account" HorizontalAlignment="Left" Margin="834,105,0,0"
+                       VerticalAlignment="Top" />
+            <TextBlock Visibility="Hidden" Cursor="Hand" MouseDown="switch_account_Click" Name="switch_account"
+                       Foreground="Orange" Text="Choose Another Account" HorizontalAlignment="Left"
+                       Margin="834,136,0,0" VerticalAlignment="Top" />
+            <TextBlock Visibility="Hidden" Cursor="Hand" MouseDown="sign_out_Click" Name="sign_out" Foreground="Orange"
+                       Text="Sign Out All Accounts" HorizontalAlignment="Left" Margin="834,167,0,0"
+                       VerticalAlignment="Top" />
+
+
+            <Image RenderOptions.BitmapScalingMode="Fant" Cursor="Hand" Name="account" MouseDown="Account_MouseDown"
+                   Stretch="Fill" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"
+                   Source="{StaticResource settings}" Margin="27,30,0,0" />
+
+
+        </Grid>
+    </Border>
+
+
+</Window>
